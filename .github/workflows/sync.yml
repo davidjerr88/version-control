@@ -1,0 +1,45 @@
+name: Sync Docker Images to Aliyun ACR  # Workflow 的名称
+run-name: ${{ github.actor }} is syncing Docker images  # 在 GitHub Actions 页面显示运行者
+
+# 触发条件
+on:
+  # 当有代码推送到以下分支或路径时触发
+  push:
+    branches:
+      - main  # 监听 main 分支的推送
+    paths:
+      - 'images.txt'  # 只有 images.txt 文件更新才触发
+      - '.github/workflows/sync.yml'  # workflow 文件自身更新也触发
+  # 允许手动触发 Workflow
+  workflow_dispatch:
+
+# 定义任务（Jobs）
+jobs:
+  sync-images:  # 定义一个 Job
+    runs-on: ubuntu-latest  # GitHub Actions Runner 运行环境 (Ubuntu 最新版)
+
+    # 定义任务步骤
+    steps:
+      # 步骤1: 拉取 GitHub 仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4  # 使用 actions/checkout@v4 action
+
+      # 步骤2: 登录阿里云容器镜像服务 (ACR)
+      - name: Login to Aliyun Container Registry (ACR)
+        uses: docker/login-action@v3  # 使用 docker/login-action@v3 action
+        with:
+          registry: ${{ secrets.ACR_REGISTRY }}  # 动态构建 ACR Registry 地址
+          username: ${{ secrets.ACR_USERNAME }}  # 使用 GitHub Secrets 中的 ACR 用户名 (RAM AccessKey ID)
+          password: ${{ secrets.ACR_PASSWORD }}  # 使用 GitHub Secrets 中的 ACR 密码 (RAM AccessKey Secret)
+
+      # 步骤3: 执行同步脚本
+      - name: Execute sync script
+        run: |
+          bash "${{ github.workspace }}/sync.sh"  # 运行 sync.sh 脚本
+        env:
+          ACR_REGISTRY: ${{ secrets.ACR_REGISTRY }}  # 传递环境变量到脚本
+          ACR_NAMESPACE: ${{ secrets.ACR_NAMESPACE }}
+
+      # 步骤4 (可选): 打印 Job 状态
+      - name: Job status
+        run: echo "This job's status is ${{ job.status }}"
