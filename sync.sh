@@ -16,15 +16,15 @@ if [ ! -f "$IMAGES_FILE" ]; then
 fi
 
 # 检查必要环境变量是否已设置
-if [ -z "${ALIYUN_REGISTRY+x}" ] || [ -z "${ALIYUN_NAME_SPACE+x}" ]; then
-    echo "错误: ALIYUN_REGISTRY 或 ALIYUN_NAME_SPACE 未设置！请在 GitHub Secrets 中配置。"
+if [ -z "${ACR_REGISTRY+x}" ] || [ -z "${ACR_NAMESPACE+x}" ]; then
+    echo "错误: ACR_REGISTRY 或 ACR_NAMESPACE 未设置！请在 GitHub Secrets 中配置。"
     exit 1
 fi
 
 # 打印同步信息
 echo "开始同步 Docker 镜像到阿里云 ACR..."
-echo "目标 Registry: ${ALIYUN_REGISTRY}"
-echo "目标 Namespace: ${ALIYUN_NAME_SPACE}"
+echo "目标 Registry: ${ACR_REGISTRY}"
+echo "目标 Namespace: ${ACR_NAMESPACE}"
 echo "-----------------------------------"
 
 # 同步镜像函数
@@ -44,7 +44,7 @@ sync_image() {
     fi
 
     # 构造目标镜像路径
-    target_full_image_path="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/${original_repo}:${original_tag}"
+    target_full_image_path="${ACR_REGISTRY}/${ACR_NAMESPACE}/${original_repo}:${original_tag}"
 
     echo "--- 处理镜像: ${image} ---"
     echo "原始镜像路径: ${image}"

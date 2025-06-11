@@ -28,17 +28,17 @@ jobs:
       - name: Login to Aliyun Container Registry (ACR)
         uses: docker/login-action@v3  # 使用 docker/login-action@v3 action
         with:
-          registry: ${{ secrets.ALIYUN_REGISTRY }}  # 动态构建 ACR Registry 地址
-          username: ${{ secrets.ALIYUN_REGISTRY_USER }}  # 使用 GitHub Secrets 中的 ACR 用户名 (RAM AccessKey ID)
-          password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}  # 使用 GitHub Secrets 中的 ACR 密码 (RAM AccessKey Secret)
+          registry: ${{ secrets.ACR_REGISTRY }}  # 动态构建 ACR Registry 地址
+          username: ${{ secrets.ACR_USERNAME }}  # 使用 GitHub Secrets 中的 ACR 用户名 (RAM AccessKey ID)
+          password: ${{ secrets.ACR_PASSWORD }}  # 使用 GitHub Secrets 中的 ACR 密码 (RAM AccessKey Secret)
 
       # 步骤3: 执行同步脚本
       - name: Execute sync script
         run: |
           bash "${{ github.workspace }}/sync.sh"  # 运行 sync.sh 脚本
         env:
-          ALIYUN_REGISTRY: ${{ secrets.ALIYUN_REGISTRY }}  # 传递环境变量到脚本
-          ALIYUN_NAME_SPACE: ${{ secrets.ALIYUN_NAME_SPACE }}
+          ACR_REGISTRY: ${{ secrets.ACR_REGISTRY }}  # 传递环境变量到脚本
+          ACR_NAMESPACE: ${{ secrets.ACR_NAMESPACE }}
 
       # 步骤4 (可选): 打印 Job 状态
       - name: Job status
