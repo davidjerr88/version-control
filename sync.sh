@@ -43,6 +43,7 @@ sync_image() {
         original_tag="latest"
     fi
 
+    original_repo="${original_repo//\//-}"  # 将 '/' 替换为 '-'
     # 构造目标镜像路径
     target_full_image_path="${ACR_REGISTRY}/${ACR_NAMESPACE}/${original_repo}:${original_tag}"
 
