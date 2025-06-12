@@ -1,4 +1,5 @@
 # 官方镜像示例
 cassandra:4.1
+zookeeper:3.8
 
 # 此处一定要有一行空行
