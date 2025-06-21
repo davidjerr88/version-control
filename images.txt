@@ -5,6 +5,6 @@ bitnami/kafka:3.8.1
 bitnami/redis-cluster:7.2
 redis:7.4
 mysql:latest
-mysql:8.0.33
+mysql:8.0
 
 # 此处一定要有一行空行
