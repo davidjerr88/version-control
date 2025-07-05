@@ -7,5 +7,14 @@ redis:7.4
 mysql:latest
 mysql:8.0
 openjdk:8u111-jdk
+thingsboard/tb-node:4.1.0
+thingsboard/tb-web-ui:4.1.0
+thingsboard/tb-js-executor:4.1.0
+thingsboard/tb-http-transport:4.1.0
+thingsboard/tb-mqtt-transport:4.1.0
+thingsboard/tb-coap-transport:4.1.0
+thingsboard/tb-lwm2m-transport:4.1.0
+thingsboard/tb-snmp-transport:4.1.0
+
 
 # 此处一定要有一行空行
