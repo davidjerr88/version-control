@@ -17,7 +17,7 @@ thingsboard/tb-lwm2m-transport:4.1.0
 thingsboard/tb-snmp-transport:4.1.0
 quay.io/keycloak/keycloak:26.3.1
 thingsboard/tb-gateway:3.7-stable
-primiano/docker-webvirtmgr:latest
+primiano/docker-webvirtmgr
 retspen/webvirtmgr:latest
 
 # 此处一定要有一行空行
