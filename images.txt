@@ -1,4 +1,4 @@
 # 官方镜像示例
-retspen/webvirtmgr:latest
+thingsboard/openjdk17:bookworm-slim
 
 # 此处一定要有一行空行
