@@ -1,4 +1,4 @@
 # 官方镜像示例
-thingsboard/openjdk17:bookworm-slim
+thingsboard/tb-node:4.2.1
 
 # 此处一定要有一行空行
