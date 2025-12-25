@@ -1,4 +1,4 @@
 # 官方镜像示例
-bitnamilegacy/valkey:8.0
+bitnamilegacy/kafka:4.0
 
 # 此处一定要有一行空行
