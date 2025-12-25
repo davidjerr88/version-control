@@ -1,5 +1,4 @@
 # 官方镜像示例
-prom/prometheus:v3.1.0
-grafana/grafana
+bitnamilegacy/kafka:4.0
 
 # 此处一定要有一行空行
