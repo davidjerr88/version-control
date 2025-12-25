@@ -1,5 +1,4 @@
 # 官方镜像示例
-postgres:16
-cassandra:5.0
+zookeeper:3.8.1
 
 # 此处一定要有一行空行
