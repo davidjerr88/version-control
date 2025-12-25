@@ -1,4 +1,5 @@
 # 官方镜像示例
-zookeeper:3.8.1
+prom/prometheus:v3.1.0
+grafana/grafana
 
 # 此处一定要有一行空行
