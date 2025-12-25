@@ -1,5 +1,5 @@
 # 官方镜像示例
-bitnamilegacy/kafka:4.0
-
+postgres:16
+cassandra:5.0
 
 # 此处一定要有一行空行
