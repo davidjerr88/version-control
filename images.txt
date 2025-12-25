@@ -1,4 +1,4 @@
 # 官方镜像示例
-thingsboard/node:22.18.0-bookworm-slim
+bitnamilegacy/valkey:8.0
 
 # 此处一定要有一行空行
