@@ -1,5 +1,4 @@
 # 官方镜像示例
-thingsboard/tb-vc-executor:4.2.1.1
-thingsboard/tb-edqs:4.2.1.1
+n8nio/n8n:latest
 
 # 此处一定要有一行空行
